@@ -16,13 +16,13 @@ int main()
     }
 
     //将所有单词变成大写形式
-    for(decltype(vs.size()) i = 0; i < vs.size(); ++i) {
+    /*for(decltype(vs.size()) i = 0; i < vs.size(); ++i) {
         for(decltype(vs[i].size()) temp = 0; temp < vs[i].size(); temp++)
             vs[i][temp] = toupper(vs[i][temp]);
-    }
+    }*/
 
-    for(string &j : vs)
-        cout << j << endl;;
+    for(auto it = vs.begin(); it != vs.end(); it++)
+        cout << (*it) << endl;;
     //cout << endl;
 
     return 0;
