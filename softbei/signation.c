@@ -8,18 +8,17 @@
 #include <fcntl.h>
 #include <stdbool.h>
 
-#define SIGNATION "test"
 #define BUFFER_SIZE 1024
 
 void add_signation(int elf_fd, char* signation);
 
-void my_error(char* error_function, int line)
+void my_error(const char* error_function, const int line)
 {
     perror(error_function);
     printf("line:%d", line);
 }
 
-void option_test(int argc, char** argv)
+void option_test(const int argc, const char** argv)
 {
     //只能有两个参数
     if(argc != 2) {
@@ -44,13 +43,33 @@ void option_test(int argc, char** argv)
     close(fd);
 }
 
-void read_file_header(char* filename, void* dst)
+int get_file_size(const char* filename)
+{
+    struct stat file_stat;
+    stat(filename, &file_stat);
+    return file_stat.st_size;
+}
+
+void read_file(const char* filename, void* dst, const int size)
 {
     int fd = open(filename, O_RDONLY);
     if(fd == -1) {
         my_error("open", __LINE__-2);
         exit(1);
     }
-    read(fd, dst, EHSIZE + SHSIZE);
+    read(fd, dst, size);
+    close(fd);
+}
+
+void add_section(const char* filename, const char* str)
+{
+    int fd;
+    int len;
+    if((fd = open(filename, O_RDWR)) == -1) {
+        my_error("open", __LINE__-1);
+    }
+    len = strlen(str);
+    lseek(fd, 0, SEEK_END);
+    write(fd, str, len);
     close(fd);
 }
