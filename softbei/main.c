@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <elf.h>
 #include "signation.h"
 
@@ -22,16 +23,19 @@ int main(const int argc, const char* argv[])
         printf("%x ", *(uint8_t*)(file_start+i));
     }
     printf("\n");
+    //获取section_header在文件中的偏移
     ELF64_shoff = *(uint64_t*)(file_start + 40);
     //在文件末尾添加签名
     signation = SIGNATION;
     add_signation(argv[1], signation);
-    //获取一个section_header
+    /*//获取一个section_header
     get_elf64_shdr((void*)(file_start + ELF64_shoff) + 64, &section_header);
     //输出section_header
-    //print_elf64_shdr(section_header);
-    //修改section_header
-    alter_elf64_shdr(file_start + ELF64_shoff, section_header);
+    print_elf64_shdr(section_header);*/
+    //构建signation的section_heade
+    make_signation64_shdr(&section_header, (Elf64_Off)file_size, (Elf64_Xword)strlen(signation));
+    //修改第0个section_header
+    alter_elf64_shdr(file_start + ELF64_shoff + SH64_SIZE * 0, section_header);
     //将缓冲区内容太写入文件
     write_file(argv[1], file_start, file_size);
     return 0;

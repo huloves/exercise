@@ -31,7 +31,10 @@ void option_test(const int argc, const char** argv)
     char signation_file[14] = "had signation";
     char buffer[BUFFER_SIZE];
 
-    fd = open(argv[1], O_RDONLY);
+    if((fd = open(argv[1], O_RDONLY)) == -1) {
+        my_error("open", __LINE__-1);
+        exit(1);
+    }
     read(fd, buffer, 16);
     if((strncmp(elf_type, buffer, 16))) {
         printf("the file is not elf_file\n");
@@ -41,7 +44,6 @@ void option_test(const int argc, const char** argv)
     //不可以重复签名，在文件末尾添加秘钥，检测秘钥是否已经存在（秘钥：had signation）
     lseek(fd, -13, SEEK_END);
     read(fd, buffer, 13);
-    printf("buffer:%s\n", buffer);
     if(!(strncmp(signation_file, buffer, 13))) {
         printf("had signed\n");
         close(fd);
@@ -132,4 +134,19 @@ void alter_elf64_shdr(const void* shdr_start, const Elf64_Shdr section_header)
     *(Elf64_Word*)(shdr_start + 44) = section_header.sh_info;
     *(Elf64_Xword*)(shdr_start + 48) = section_header.sh_addralign;
     *(Elf64_Xword*)(shdr_start + 56) = section_header.sh_entsize;
+}
+
+void make_signation64_shdr(Elf64_Shdr* section_header, Elf64_Off section_offset, Elf64_Xword section_size)
+{
+    
+    section_header->sh_offset = section_offset;
+    section_header->sh_size = section_size;
+    section_header->sh_name = 0;
+    section_header->sh_type = 0;
+    section_header->sh_flags = 0;
+    section_header->sh_addr = 0; 
+    section_header->sh_link = 0; 
+    section_header->sh_info = 0;
+    section_header->sh_addralign = 0;
+    section_header->sh_entsize = 0;
 }
