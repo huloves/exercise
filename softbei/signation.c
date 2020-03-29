@@ -150,3 +150,29 @@ void make_signation64_shdr(Elf64_Shdr* section_header, Elf64_Off section_offset,
     section_header->sh_addralign = 0;
     section_header->sh_entsize = 0;
 }
+
+void read_elf64_shdr(const char* filename, Elf64_Shdr* section_header)
+{
+    int fd;
+    if((fd = open(filename, O_RDONLY)) == -1) {
+        my_error("open", __LINE__-1);
+        exit(1);
+    }
+    void* ehdr_start;
+    void* shdr_start;
+    Elf64_Off shdr_off;
+    ehdr_start = (Elf64_Ehdr*)malloc(EH64_SIZE);
+    shdr_start = (Elf64_Shdr*)malloc(SH64_SIZE);
+    //读取elf_header
+    read(fd, ehdr_start, EH64_SIZE);
+    //获取section_header在文件中的偏移
+    shdr_off = *(Elf64_Off*)(ehdr_start+40);
+    //移动文件指针到section_header_start
+    lseek(fd, shdr_off, SEEK_SET);
+    //读取section_header
+    read(fd, shdr_start, SH64_SIZE);
+    //将获取到的section_header复制到*section_header
+    get_elf64_shdr(shdr_start, section_header);
+    print_elf64_shdr(*section_header);
+    close(fd);
+}
