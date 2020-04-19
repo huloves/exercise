@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<style type="text/css">
+		#allmap {margin:0;font-family:"微软雅黑";}
+	</style>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=GZGXa420r2vgNVRHh7jGflNePGA2zWpK"></script>
+    <title>医疗地图</title>
+    <link rel="stylesheet" type="text/css" href="css/home.css">
+</head>
+<body>
+    <div class="home_top"></div>
+    <div class="guide">
+        <div id="logo"><a href="home.html"><font color="#FFFFFF">HOME</font></a></div>
+		<div class="function"><a href=""><font color="#FFFFFF">功能1</font></a></div>
+		<div class="function"><a href=""><font color="#FFFFFF">功能2</font></a></div>
+		<div class="function"><a href=""><font color="#FFFFFF">功能3</font></a></div>
+		<div id="find">
+			<input type="text" placeholder="请输入关键字" width="167" height="28">
+			<input type="submit" value="搜索" width="50" height="28">
+		</div>
+	</div>
+	<div id="centine">
+		<div id="left_side"></div>
+		<div id="allmap" style="width: 700px; height: 550px; border: #ccc solid 1px; float: left; margin-left: 20px;"></div>
+		<div id="right_side">
+			<div id="comment"><font color="#000000" size="5">实时新闻</font></div>
+			<div id="news"></div>
+		</div>
+	</div>
+	<center>
+	<div id="bottom">
+		<p align="center">
+			<font size="2" color="#000">
+				服务条款| 隐私政策| 版权投诉指引| 意见反馈 |
+			</font>
+		</p>
+
+		<p align="center">
+			<font size="2">
+				hqw版权所有©2018-2022陕西省西安市西安邮电大学：[2018]6666-666号
+			</font>
+		</p>
+
+		<p align="center">
+			<font size="2">
+				违法和不良信息举报电话：17791627852 举报邮箱：huloves@163.com
+			</font>
+		</p>
+	</div>
+	</center>
+</body>
+</html>
+<script type="text/javascript">
+	// 百度地图API功能
+	var map = new BMap.Map("allmap");    // 创建Map实例
+	map.centerAndZoom(new BMap.Point(108.953098279, 34.2777998978), 11);  // 初始化地图,设置中心点坐标和地图级别
+	//添加地图类型控件
+	map.addControl(new BMap.MapTypeControl({
+		mapTypes:[
+            BMAP_NORMAL_MAP,
+            BMAP_HYBRID_MAP
+        ]}));	  
+	map.setCurrentCity("西安");          // 设置地图显示的城市 此项是必须设置的
+	map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+</script>
