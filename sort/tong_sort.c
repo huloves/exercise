@@ -2,20 +2,20 @@
 
 int main()
 {
-    int a[11];
-    int i,j,t;
-
-    for(i=0; i<=10; i++) {
-        a[i] = 0;
+    int book[1001], n, temp;
+    for(int i=0; i<=1000; i++) {
+        book[i] = 0;
     }
 
-    for(i=1; i<=5; i++) {
-        scanf("%d", &t);
-        a[t]++;
+    scanf("%d", &n);
+
+    for(int i=0; i<n; i++) {
+        scanf("%d", &temp);
+        book[temp]++;
     }
 
-    for(i=0; i<=10; i++) {
-        for(j=0; j<a[i]; j++) {
+    for(int i=1000; i>=0; i--) {
+        for(int j=0; j<book[i]; j++) {
             printf("%d ", i);
         }
     }
