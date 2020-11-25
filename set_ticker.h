@@ -1,35 +1,12 @@
-#include <stdio.h>
-#include <stdlib.h>
+#ifndef SET_TICKER_H
+#define SET_TICKER_H
+
 #include <unistd.h>
-#include <sys/wait.h>
-#include <sys/types.h>
 #include <sys/time.h>
-#include <signal.h>
-#include "set_ticker.h"
 
-// int set_ticker(int n_msecs);
+int set_ticker(int n_msecs);
 
-uint64_t ticks = 0;
-
-void signal_headler(int signal_num)
-{
-	printf("ticks = %lld\n", ticks++);
-}
-
-int main()
-{
-	signal(SIGALRM, signal_headler);
-	if(set_ticker(1) == -1) {
-		perror("set_ticker");
-	} else {
-		while(1) {
-			pause();
-		}
-	}
-	return 0;
-}
-
-/*int set_ticker(int n_msecs)
+int set_ticker(int n_msecs)
 {
     struct itimerval new_timeset;
     long n_sec, n_usecs;
@@ -47,4 +24,5 @@ int main()
 
     return setitimer(ITIMER_REAL, &new_timeset, NULL);
 }
-*/
+
+#endif
