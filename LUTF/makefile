@@ -15,9 +15,9 @@ $(BUILD_DIR)/list.o: list.c include/list.h
 	$(CC) $(CFLAGS) $< -o $@
 
 ###### 链接 ######
-$(BUILD_DIR)/test: $(OBGS)
+$(BUILD_DIR)/test: $(OBJS)
 	# $(LD) $(LDFLAGS) $^ -o $@
-	$(LD) $^ -o $@
+	$(LD) $(^) -o $@
 
 .PHONY: mk_dir clean all
 
