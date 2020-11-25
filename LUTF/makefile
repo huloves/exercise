@@ -22,7 +22,7 @@ $(BUILD_DIR)/test: $(OBGS)
 .PHONY: mk_dir clean all
 
 mk_dir:
-	if [[! -d $(BUILD_DIR) ]]; then mkdir $(BUILD_DIR);fi
+	if [[ ! -d $(BUILD_DIR) ]]; then mkdir $(BUILD_DIR);fi
 
 clean:
 	cd $(BUILD_DIR) && rm -f ./*
