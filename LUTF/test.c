@@ -9,6 +9,8 @@
 
 #include "set_ticker.h"
 #include "stdint.h"
+#include "assert.h"
+#include "task.h"
 
 // int set_ticker(int n_msecs);
 
@@ -17,11 +19,6 @@ uint64_t ticks = 0;
 void signal_headler(int signal_num)
 {
 	printf("ticks = %lld\n", ticks++);
-}
-
-int add(int a, int b)
-{
-    return a + b;
 }
 
 int main()
@@ -36,7 +33,7 @@ int main()
 		}
 	}*/
 
-    jmp_buf env;
+    /*jmp_buf env;
     int i;
     
     i = setjmp(env);
@@ -46,7 +43,9 @@ int main()
         exit(1);
     }
 
-    longjmp(env, 2);
+    longjmp(env, 2);*/
+
+    task_init();
 
 	return 0;
 }

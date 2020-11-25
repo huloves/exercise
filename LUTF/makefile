@@ -4,17 +4,24 @@ LD = gcc
 LIB = -I include/
 CFLAGS = -c $(LIB)
 
-OBJS = $(BUILD_DIR)/test.o
+OBJS = $(BUILD_DIR)/main.o $(BUILD_DIR)/assert.o $(BUILD_DIR)/task.o $(BUILD_DIR)/list.o
 
 ###### 编译 ######
-$(BUILD_DIR)/test.o: test.c include/set_ticker.h include/stdint.h
+$(BUILD_DIR)/main.o: main.c include/task.h
 	$(CC) $(CFLAGS) $< -o $@
 
 $(BUILD_DIR)/list.o: list.c include/list.h
 	$(CC) $(CFLAGS) $< -o $@
 
+$(BUILD_DIR)/assert.o: assert.c include/assert.h
+	$(CC) $(CFLAGS) $< -o $@
+
+$(BUILD_DIR)/task.o: task.c include/task.h \
+					include/list.h include/assert.h
+	$(CC) $(CFLAGS) $< -o $@
+
 ###### 链接 ######
-$(BUILD_DIR)/test: $(OBJS)
+main: $(OBJS)
 	$(LD) $(^) -o $@
 
 .PHONY: mk_dir clean all
@@ -25,6 +32,6 @@ mk_dir:
 clean:
 	cd $(BUILD_DIR) && rm -f ./*
 
-build: $(BUILD_DIR)/test
+build: main
 
 all:mk_dir build

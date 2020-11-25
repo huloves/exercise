@@ -3,8 +3,13 @@
 
 #include "stdint.h"
 #include "list.h"
+#include <setjmp.h>
 
 typedef int16_t tid_t;
+
+extern struct list task_ready_list;
+extern struct list task_all_list;
+extern struct task_struct* current_task;
 
 enum task_status
 {
@@ -15,6 +20,7 @@ enum task_status
 
 struct task_struct
 {
+    jmp_buf env;
     tid_t tid;   //任务id
     enum task_status status;   //任务状态
     char name[32];   //任务名
@@ -28,5 +34,20 @@ struct task_struct
 
     uint32_t stack_magic;   //魔数
 };
+
+/** 
+ * task_init - 初始化任务 
+ * **/
+void task_init(void);
+
+/**
+ * init_task - 初始化任务基本信息
+ * **/
+void init_task(struct task_struct* ptask, char* name, int prio);
+
+/**
+ * print_task_info - 打印task信息
+ * **/
+void print_task_info(struct task_struct* ptask);
 
 #endif
