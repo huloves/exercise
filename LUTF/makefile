@@ -4,7 +4,8 @@ LD = gcc
 LIB = -I include/
 CFLAGS = -c $(LIB)
 
-OBJS = $(BUILD_DIR)/main.o $(BUILD_DIR)/assert.o $(BUILD_DIR)/task.o $(BUILD_DIR)/list.o
+OBJS = $(BUILD_DIR)/main.o $(BUILD_DIR)/assert.o $(BUILD_DIR)/task.o $(BUILD_DIR)/list.o \
+		$(BUILD_DIR)/analog_interrupt.o
 
 ###### 编译 ######
 $(BUILD_DIR)/main.o: main.c include/task.h
@@ -18,6 +19,10 @@ $(BUILD_DIR)/assert.o: assert.c include/assert.h
 
 $(BUILD_DIR)/task.o: task.c include/task.h \
 					include/list.h include/assert.h
+	$(CC) $(CFLAGS) $< -o $@
+
+$(BUILD_DIR)/analog_interrupt.o: analog_interrupt.c include/analog_interrupt.h \
+					include/set_ticker.h include/stdint.h include/assert.h
 	$(CC) $(CFLAGS) $< -o $@
 
 ###### 链接 ######

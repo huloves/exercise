@@ -10,7 +10,6 @@
 #include "set_ticker.h"
 #include "stdint.h"
 #include "assert.h"
-#include "task.h"
 
 // int set_ticker(int n_msecs);
 
@@ -24,14 +23,17 @@ void signal_headler(int signal_num)
 int main()
 {
     /* 模拟中断 */
-	/*signal(SIGALRM, signal_headler);
-	if(set_ticker(1) == -1) {
+    printf("!!!!\n");
+    sleep(3);
+    printf("AAAA\n");
+	signal(SIGALRM, signal_headler);
+	if(set_ticker(1000) == -1) {
 		perror("set_ticker");
 	} else {
 		while(1) {
 			pause();
 		}
-	}*/
+	}
 
     /*jmp_buf env;
     int i;
@@ -44,8 +46,6 @@ int main()
     }
 
     longjmp(env, 2);*/
-
-    task_init();
 
 	return 0;
 }
