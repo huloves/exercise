@@ -8,6 +8,7 @@
 #include <setjmp.h>
 
 #include "set_ticker.h"
+#include "stdint.h"
 
 // int set_ticker(int n_msecs);
 
