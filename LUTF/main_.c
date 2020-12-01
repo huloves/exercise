@@ -16,10 +16,10 @@ void proc(void *data)
 void main(void)
 {
     act_spawn(proc, "A");
-    act_spawn(proc, " B");
-    act_spawn(proc, "  C");
-    act_spawn(proc, "   D");
-    act_spawn(proc, "    E");
+    act_spawn(proc, "B");
+    act_spawn(proc, "C");
+    act_spawn(proc, "D");
+    act_spawn(proc, "E");
 
     act_loop(3);
 }
