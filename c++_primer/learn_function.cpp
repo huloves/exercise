@@ -11,6 +11,8 @@ using std::string;
 using std::vector;
 using std::begin;
 using std::end;
+using std::initializer_list;
+using std::error_code;
 
 void reset(int* ip)
 {
@@ -51,9 +53,15 @@ bool is_sentence(const string& s)
 
 void error_msg(initializer_list<string> il)
 {
-    for(string::size_type beg = il.begin(); beg != il.end(); beg++) {
-        cout << *beg << endl;
+    for(auto beg = il.begin(); beg != il.end(); beg++) {
+        cout << *beg << ' ';
     }
+    cout << endl;
+}
+
+const string& shorter_string(const string& s1, const string& s2)
+{
+    return s1.size() <= s2.size() ? s1 : s2;
 }
 
 int main(int argc, char** argv)
@@ -66,9 +74,15 @@ int main(int argc, char** argv)
 
     string::size_type index = find_char("hello world!", 'o', ctr);
     reset(i);
+    
+    string str = shorter_string("123456", "123");
+    str[1] = 'a';
 
+    cout << "shorter string:" << str << endl;
     cout << "i = " << i << endl;
     cout << "index = " << index << " ctr = " << ctr << endl;
-    
+    error_msg({"functionX", "hello", "world"});
+    error_msg({"functionX", "hello"});
+
     return 0;
 }
