@@ -23,7 +23,7 @@ void context_test()
     child.uc_stack.ss_flags = 0;
     child.uc_link = &main;
 
-    makecontext(NULL, (void*)func1, 0);
+    makecontext(&child, (void*)func1, 0);
     swapcontext(&main, &child);
     printf("main\n");
 }
