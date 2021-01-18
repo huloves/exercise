@@ -21,7 +21,7 @@ void context_test()
     child.uc_stack.ss_sp = stack;
     child.uc_stack.ss_size = sizeof(stack);
     child.uc_stack.ss_flags = 0;
-    child.uc_link = &main;
+    child.uc_link = NULL;
 
     makecontext(&child, (void*)func1, 0);
     swapcontext(&main, &child);
