@@ -30,7 +30,7 @@ void func1()
 	int i = 1;
 	while (i++) {
 		printf("thread 1 :%d\n", i);
-		sleep(1);
+		// sleep(1);
 		if (i%3 == 0) {
 			schedule(ctx1, ctx2);
 		}
@@ -42,7 +42,7 @@ void func2()
 	int i = 0xffff;
 	while (i--) {
 		printf("thread 2 :%d\n", i);
-		sleep(1);
+		// sleep(1);
 		if (i%3 == 0) {
 			schedule(ctx2, ctx1);
 		}
