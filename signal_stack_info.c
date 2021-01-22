@@ -7,12 +7,15 @@
 int i, j, k = 0;
 unsigned char* stack_buffer;
 unsigned long* p;
+// uint64_t* rsp;
 
 void sig_start(int signo)
 {
+    uint64_t* rsp;
+    uint64_t* rbp;
     unsigned long a = 0x1234567811223344;
 
-    p = (unsigned char*)&a;
+    // p = (unsigned char*)&a;
     stack_buffer = (unsigned char*)&a;
 
     printf("----begin stack----\n");
@@ -24,6 +27,26 @@ void sig_start(int signo)
         printf("\n");
     }
     printf("----end stack----\n");
+
+    asm volatile ("movq %%rbp, %0" : : "m"(rbp));
+    asm volatile ("movq %%rsp, %0" : : "m"(rsp));
+    printf("rbp = %p\n", rbp);
+    printf("rsp = %p\n", rsp);
+    printf("*rbp = %llx\n", *rbp);
+    printf("*(rbp+1) = %llx\n", *(rbp+1));
+    printf("&a = 0x%llx\n", &a);
+    printf("signo = %llx\n", signo);
+    printf("&signo = %llx\n", &signo);
+
+    k = 0;
+    for(i=0; i<32; i++) {
+        for(j=0; j<8; j++) {
+            printf(" %0.2x", stack_buffer[k]);
+            k++;
+        }
+        printf("\n");
+    }
+    printf("---------------------\n");
 
     if(signo = SIGINT) {
         signal(SIGINT, NULL);
@@ -40,7 +63,10 @@ int main(int argc, char** argv)
     signal(SIGINT, sig_start);
     signal(SIGHUP, sig_start);
 
-    for(;;);
+    while(1) {
+        printf("AAAAAAAA|n");
+        sleep(1);
+    }
 
     return 0;
 }
