@@ -14,6 +14,10 @@ using std::end;
 using std::initializer_list;
 using std::error_code;
 
+typedef string::size_type sz;
+
+string screen(sz ht = 24, sz wid = 80, char backgrnd = ' ');
+
 void reset(int* ip)
 {
     *ip = 0;
@@ -62,6 +66,12 @@ void error_msg(initializer_list<string> il)
 const string& shorter_string(const string& s1, const string& s2)
 {
     return s1.size() <= s2.size() ? s1 : s2;
+}
+
+string& shorter_string(string& s1, string& s2)
+{
+    auto& r = shorter_string(const_cast<const string&>(s1), const_cast<const string&>(s2));
+    return const_cast<string&>(r);
 }
 
 int main(int argc, char** argv)
