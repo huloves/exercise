@@ -35,7 +35,7 @@ void dfs(int x, int y, int step)
     return;
 }
 
-int main()
+int main(int argc, char** argv)
 {
     int i, j, startx, starty;
     //读入n和m，n为行，m为列
