@@ -37,6 +37,7 @@ void dfs(int x, int y, int color)
 int main(int argc, char** argv)
 {
     int startx, starty;
+    int num = 0;
     scanf("%d %d %d %d", &n, &m, &startx, &starty);
     
     for(int i=1; i<=n; i++) {
@@ -45,9 +46,17 @@ int main(int argc, char** argv)
         }
     }
 
-    book[startx][starty] = 1;
-    sum = 1;
-    dfs(startx, starty, -1);
+    // book[startx][starty] = 1;
+    // sum = 1;
+    // dfs(startx, starty, -1);
+    for(int i = 1; i <= n; i++) {
+        for(int j = 1; j <= m; j++) {
+            if(a[i][j] > 0) {
+                book[i][j] = 1;
+                dfs(i, j, --num);
+            }
+        }
+    }
 
     //输出染色后的地图
     for(int i=1; i<=n; i++) {
@@ -58,6 +67,7 @@ int main(int argc, char** argv)
     }
 
     printf("sum = %d\n", sum);
+    printf("num = %d\n", -num);
 
     return 0;
 }
