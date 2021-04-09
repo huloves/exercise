@@ -6,7 +6,7 @@ int book[101];
 
 void dfs(int cur)
 {
-    printf("%d \n", cur);
+    printf("%d ", cur);
     sum++;
     if(sum == n) {
         return;
