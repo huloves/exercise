@@ -36,7 +36,7 @@ int main(int argc, char** argv)
 
     //dijkstra core
     for(i = 1; i <= n-1; i++) {
-        //找到离1号顶点最近的顶点
+        //在Q集合中找到离1号顶点最近的顶点
         min = inf;
         for(j = 1; j <= n; j++) {
             if(book[j] == 0 && dis[j] < min) {
@@ -45,6 +45,7 @@ int main(int argc, char** argv)
             }
         }
         book[u] = 1;   //将找到的距离1顶点最近的顶点加入P集合
+        //进行松弛
         for(v = 1; v <= n; v++) {
             if(e[u][v] < inf) {
                 if(dis[v] > dis[u] + e[u][v]) {
