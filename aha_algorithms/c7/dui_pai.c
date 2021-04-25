@@ -17,13 +17,17 @@ int main(int argc, char** argv)
     int i, num;
     scanf("%d", &num);
     for(i = 1; i <= num; i++) {
-        scanf("%d", h[i]);
+        scanf("%d", &h[i]);
     }
+    n = num;
+
     create();
+    
     for(i = 1; i <= num; i++) {
         printf("%d ", delete_min());
     }
     printf("\n");
+    
     return 0;
 }
 
@@ -38,12 +42,12 @@ void shiftdown(int i) {
     int flag = 0;
     int t;
     // 当i节点有儿子，并且有需要调整的时候循环
-    while(i * 2 <= n &&  flag == 0) {
+    while(i * 2 <= n && flag == 0) {
         // 首先判断和做左儿子的关系
         if(h[i] < h[i * 2]) {
             t = i;
         } else {
-            t = h[i * 2];
+            t = i * 2;
         }
         // 先判断是否有右儿子
         if(i * 2 + 1 <= n) {
