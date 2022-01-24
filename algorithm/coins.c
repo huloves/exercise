@@ -3,6 +3,7 @@
 
 int min(int a, int b);
 int coinChange(int* coins, int coinsSize, int amount);
+int coinChange_(int* coins, int coinsSize, int amount);
 int dp(int *coins, int coinsSize, int amount, int* book);
 
 int main(int argc, char **argv)
@@ -22,7 +23,7 @@ int main(int argc, char **argv)
 	printf("enter amount:");
 	int amount;
 	scanf("%d", &amount);
-	printf("%d\n", coinChange(coins, n, amount));
+	printf("%d\n", coinChange_(coins, n, amount));
 	return 0;
 }
 
@@ -56,4 +57,21 @@ int dp(int *coins, int coinsSize, int amount, int* book) {
     }
     book[amount] = (ans == 99999 ? -1 : ans);
     return book[amount];
+}
+
+int coinChange_(int* coins, int coinsSize, int amount) {
+    int dp[amount + 1];
+    for(int i = 0; i < amount + 1; i++) {
+        dp[i] = amount + 1;
+    }
+    dp[0] = 0;
+    for(int i = 0; i < amount + 1; i++) {
+        for(int j = 0; j < coinsSize; j++) {
+            if(i - coins[j] < 0) {
+                continue;
+            }
+            dp[i] = min(dp[i], 1 + dp[i - coins[j]]);
+        }
+    }
+    return (dp[amount] == amount + 1) ? -1 : dp[amount];
 }
