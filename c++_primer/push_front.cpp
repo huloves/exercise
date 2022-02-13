@@ -1,7 +1,9 @@
 #include <iostream>
 #include <list>
 #include <vector>
-#include "./sales_data.h"
+#include <stack>
+#include <queue>
+#include "sales_data.h"
 
 using namespace std;
 
@@ -134,6 +136,18 @@ int main()
 	s2 = "pi = 3.14";
 	d = stod(s2.substr(s2.find_first_of("+-.0123456789")));
 	cout << d << endl;
+
+	stack<string, vector<string>> str_stk;
+	stack<string, vector<string>> str_stk2(svec);
+
+	stack<int> intStack;
+	for(size_t ix = 0; ix != 10; ++ix) {
+		intStack.push(ix);
+	}
+	while(!intStack.empty()) {
+		int value = intStack.top();
+		intStack.pop();
+	}
 
 	return 0;
 }
