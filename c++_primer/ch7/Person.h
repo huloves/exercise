@@ -4,10 +4,11 @@
 #include <iostream>
 #include <string>
 
-struct Person {
-	std::string name;
-	std::string address;
+class Person {
+friend std::istream &read(std::istream&, Person&);
+friend std::ostream &print(std::ostream&, const Person&);
 
+public:
 	// 构造函数
 	Person() = default;
 	Person(const std::string &name, const std::string &address) : 
@@ -15,6 +16,9 @@ struct Person {
 
 	std::string get_name() const { return name; }
 	std::string get_address() const { return address; }
+private:
+	std::string name;
+	std::string address;
 };
 
 std::istream &read(std::istream &is, Person &item) {

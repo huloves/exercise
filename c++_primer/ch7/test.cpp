@@ -25,5 +25,7 @@ int main(int argc, char *argv[])
     // read(cin, person);
     print(cout, person);
     cout << endl;
+    string str = "asdf";
+    cout << str.substr(0, 3) << endl;
     return 0;
 }
