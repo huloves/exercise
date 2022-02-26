@@ -12,11 +12,6 @@ struct max_pq {
 	int n;
 };
 
-// 返回当前队列中最大元素
-int top(const struct max_pq *pq) {
-	return pq->elem[1];
-}
-
 // 插入元素e
 void push(struct max_pq *pq, int e);
 
@@ -29,6 +24,11 @@ void swim(struct max_pq *pq, int k);
 // 下沉第k个元素，以维护最大堆性质
 void sink(struct max_pq *pq, int k);
 
+// 返回当前队列中最大元素
+int top(const struct max_pq *pq) {
+	return pq->elem[1];
+}
+
 // 交换数组的两个元素
 void exchange(struct max_pq *pq, int i, int j) {
 	int temp = pq->elem[i];
@@ -38,7 +38,8 @@ void exchange(struct max_pq *pq, int i, int j) {
 
 // pq->elem[i] < pq->elem[j]
 bool less(const struct max_pq *pq, int i, int j) {
-	return pq->elem[i] < pq->elem[j] ? true : false;
+	// return pq->elem[i] < pq->elem[j] ? true : false;
+	return pq->elem[i] < pq->elem[j];
 }
 
 int parent(int root) {
