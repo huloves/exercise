@@ -15,5 +15,6 @@ int main()
 	Screen *p = &scr;
 	char c = scr.get();
 	c = p->get();
+	cout << endl;
 	return 0;
 }
