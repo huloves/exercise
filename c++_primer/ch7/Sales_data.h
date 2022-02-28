@@ -21,7 +21,7 @@ public:
 private:
     // 关于Sales_data对象的操作
     // std::string isbn() const { return bookNo; }
-    double avg_price() const
+    inline double avg_price() const
         { return units_sold ? revenue / units_sold : 0; }
     // 数据乘员
     std::string bookNo;
