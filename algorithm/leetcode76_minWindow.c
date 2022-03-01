@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <limits.h>
 
 char * minWindow(char * s, char * t){
@@ -53,5 +54,5 @@ char * minWindow(char * s, char * t){
 
 int main()
 {
-	return 0;
+    return 0;
 }
