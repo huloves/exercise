@@ -21,6 +21,31 @@ int coinChange_baoli(int* coins, int coinsSize, int amount){
     return res == INT_MAX ? -1 : res;
 }
 
+int dp(int *coins, int coinsSize, int amount, int *memo) {
+    if(amount == 0) { return 0; }
+    if(amount < 0) { return -1; }
+    if(memo[amount] != -666) {
+        return memo[amount];
+    }
+    int res = INT_MAX;
+    for (int i = 0; i < coinsSize; i++) {
+        int subProblem = dp(coins, coinsSize, amount - coins[i], memo);
+        if(subProblem == -1) { continue; }
+        res = min(res, subProblem + 1);
+    }
+    memo[amount] = (res == INT_MAX) ? -1 : res;
+    return memo[amount];
+}
+
+int coinChange_dp_digui(int *coins, int coinsSize, int amount) {
+    int memo[amount + 1];
+    for(int i = 0; i < amount + 1; i++) {
+        memo[i] = -666;
+    }
+    dp(coins, coinsSize, amount, memo);
+    return memo[amount];
+}
+
 int coinChange_dp(int* coins, int coinsSize, int amount){
     int dp[amount + 1];
     for(int i = 0; i < amount + 1; i++) {
@@ -40,7 +65,7 @@ int coinChange_dp(int* coins, int coinsSize, int amount){
 int main()
 {
 	int coins[3] = {1, 2, 5};
-	int res = coinChange_dp(coins, 3, 100);
+	int res = coinChange_dp_digui(coins, 3, 100);
 	printf("%d\n", res);
 	return 0;
 }
