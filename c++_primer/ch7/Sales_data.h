@@ -12,11 +12,11 @@ friend std::ostream &print(std::ostream&, const Sales_data&);
 public:
     //构造函数
     // Sales_data() = default;   // 默认构造函数，在参数列表后面协商 = default来要求编译器生成构造函数
-    Sales_data(std::string s = "") : bookNo(s) { }
+    explicit Sales_data(std::string s = "") : bookNo(s) { }
     // Sales_data(const std::string &s) : bookNo(s) { }   //构造函数初始值列表。花括号定义了空的函数体
     Sales_data(const std::string &s, unsigned n, double p) :
                 bookNo(s), units_sold(n), revenue(p * n) { }
-    Sales_data(std::istream &is);
+    explicit Sales_data(std::istream &is);
     std::string isbn() const { return this->bookNo; }
     Sales_data& combine(const Sales_data&);
 private:
