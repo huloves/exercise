@@ -49,12 +49,14 @@ public:
 	Screen &move(pos r, pos c);     // 能在之后被设置为内联
 	void some_member() const;
 	pos size() const;
+	Screen& clear(char = bkground);
 private:
 	void do_display(std::ostream &os) const { os << contents; }
 	mutable size_t access_ctr;
 	pos cursor = 0;
 	pos height = 0, width = 0;
 	std::string contents;   // 跟踪每个Screen的成员函数被调用了多少次
+	static const char bkground;
 };
 
 Screen::pos Screen::size() const {
