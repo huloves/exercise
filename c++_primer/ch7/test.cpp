@@ -16,5 +16,7 @@ int main(int argc, char *argv[])
     double r;
     r = Account::rate();
     cout << r << endl;
+    cout << "hi!" << ends;
+    cout << "hello" << endl;
     return 0;
 }
