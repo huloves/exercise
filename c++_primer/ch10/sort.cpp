@@ -2,8 +2,10 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <functional>
 
 using namespace std;
+using namespace std::placeholders;
 
 auto f = [](const string &a, const string &b) {
 	return a.size() < b.size();
@@ -20,6 +22,10 @@ void elimDups(vector<string> &words) {
 	return;
 }
 
+bool check_size(const string &s, string::size_type sz) {
+	return s.size() >= sz;
+}
+
 void biggies(vector<string> &words, vector<string>::size_type sz) {
 	elimDups(words);
 	// stable_sort(words.begin(), words.end(), f);
@@ -27,9 +33,10 @@ void biggies(vector<string> &words, vector<string>::size_type sz) {
 		[](string const& lhs, string const& rhs) {
 		return lhs.size() < rhs.size(); }
 	);
-	auto wc = find_if(words.begin(), words.end(), 
-			[sz](const string &a)
-				{ return a.size() >= sz; });
+	// auto wc = find_if(words.begin(), words.end(), 
+			// [sz](const string &a)
+				// { return a.size() >= sz; });
+	vector<string>::iterator wc = find_if(words.begin(), words.end(), bind(check_size, placeholders::_1, sz));
 	// auto count = words.end() - wc;
 	// cout << count << " " << make_plural(count, "word", "s") << " of length " << sz << " or longer" << endl;
 	for_each(wc, words.end(), [](const string &s){cout << s << " ";});
@@ -55,5 +62,11 @@ int main()
 	// }
 	// cout << endl;
 	biggies(svec, 4);
+	auto check6 = bind(check_size, placeholders::_1, 6);
+	string s = "helloi!!!!!";
+	bool b1 = check6(s);
+	if(b1 == true) {
+		cout << "AAAA" << endl;
+	}
 	return 0;
 }
