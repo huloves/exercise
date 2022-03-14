@@ -4,6 +4,8 @@
 #include <vector>
 #include <string>
 #include <utility>
+#include <unordered_set>
+#include <unordered_map>
 #include "Sales_data.h"
 
 using namespace std;
@@ -30,7 +32,7 @@ int main()
 	cout << iset.size() << endl;
 	cout << miset.size() << endl;
 
-	multiset<Sales_data, decltype(compareIsin)*> bookstore(compareIsin);
+	multiset<Sales_data, decltype(compareIsin)*> bookstore_set(compareIsin);
 
 	pair<string, string> anon;
 	// pair<string, size_t> word_count;
@@ -45,6 +47,10 @@ int main()
 	// map_it->first = "new key";   // error
 	map_it->second++;
 	cout << map_it->first << " " << map_it->second << endl;
+
+	using SD_multiset = unordered_multiset<Sales_data, decltype(hasher)*, decltype(eqOp)*>;
+	// 参数是捅大小、哈希函数指针和相等性判断运算符指针
+	SD_multiset bookstore(42, hasher, eqOp);
 
 	return 0;
 }

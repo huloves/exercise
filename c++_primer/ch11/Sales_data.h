@@ -71,4 +71,12 @@ std::ostream &print(std::ostream &os, const Sales_data &item) {
     return os;
 }
 
+size_t hasher(const Sales_data &sd) {
+    return hash<string>() (sd.isbn());
+}
+
+bool eqOp(const Sales_data &lhs, const Sales_data &rhs) {
+    return lhs.isbn() == rhs.isbn();
+}
+
 #endif
