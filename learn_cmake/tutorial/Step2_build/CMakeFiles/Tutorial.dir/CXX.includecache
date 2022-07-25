@@ -6,9 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/huloves/repositories/exercise/learn_cmake/tutorial/Step2/MathFunctions/MathFunctions.h
+/home/huqingwei/repositories/exercise/learn_cmake/tutorial/Step2/MathFunctions/MathFunctions.h
 
-/home/huloves/repositories/exercise/learn_cmake/tutorial/Step2/tutorial.cxx
+/home/huqingwei/repositories/exercise/learn_cmake/tutorial/Step2/tutorial.cxx
 cmath
 -
 iostream
@@ -16,9 +16,9 @@ iostream
 string
 -
 TutorialConfig.h
-/home/huloves/repositories/exercise/learn_cmake/tutorial/Step2/TutorialConfig.h
+/home/huqingwei/repositories/exercise/learn_cmake/tutorial/Step2/TutorialConfig.h
 MathFunctions.h
-/home/huloves/repositories/exercise/learn_cmake/tutorial/Step2/MathFunctions.h
+/home/huqingwei/repositories/exercise/learn_cmake/tutorial/Step2/MathFunctions.h
 
 TutorialConfig.h
 

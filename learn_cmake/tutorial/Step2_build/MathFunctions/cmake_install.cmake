@@ -1,4 +1,4 @@
-# Install script for directory: /home/huloves/repositories/exercise/learn_cmake/tutorial/Step2/MathFunctions
+# Install script for directory: /home/huqingwei/repositories/exercise/learn_cmake/tutorial/Step2/MathFunctions
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

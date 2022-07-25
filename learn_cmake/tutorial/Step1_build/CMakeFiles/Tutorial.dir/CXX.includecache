@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/huloves/repositories/exercise/learn_cmake/tutorial/Step1/tutorial.cxx
+/home/huqingwei/repositories/exercise/learn_cmake/tutorial/Step1/tutorial.cxx
 cmath
 -
 iostream
@@ -14,7 +14,7 @@ iostream
 string
 -
 TutorialConfig.h
-/home/huloves/repositories/exercise/learn_cmake/tutorial/Step1/TutorialConfig.h
+/home/huqingwei/repositories/exercise/learn_cmake/tutorial/Step1/TutorialConfig.h
 
 TutorialConfig.h
 

@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/huloves/repositories/exercise/learn_cmake/tutorial/Step2
+CMAKE_SOURCE_DIR = /home/huqingwei/repositories/exercise/learn_cmake/tutorial/Step2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/huloves/repositories/exercise/learn_cmake/tutorial/Step2_build
+CMAKE_BINARY_DIR = /home/huqingwei/repositories/exercise/learn_cmake/tutorial/Step2_build
 
 # Include any dependencies generated for this target.
 include MathFunctions/CMakeFiles/MathFunctions.dir/depend.make
@@ -58,17 +58,17 @@ include MathFunctions/CMakeFiles/MathFunctions.dir/progress.make
 include MathFunctions/CMakeFiles/MathFunctions.dir/flags.make
 
 MathFunctions/CMakeFiles/MathFunctions.dir/mysqrt.cxx.o: MathFunctions/CMakeFiles/MathFunctions.dir/flags.make
-MathFunctions/CMakeFiles/MathFunctions.dir/mysqrt.cxx.o: /home/huloves/repositories/exercise/learn_cmake/tutorial/Step2/MathFunctions/mysqrt.cxx
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/huloves/repositories/exercise/learn_cmake/tutorial/Step2_build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object MathFunctions/CMakeFiles/MathFunctions.dir/mysqrt.cxx.o"
-	cd /home/huloves/repositories/exercise/learn_cmake/tutorial/Step2_build/MathFunctions && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MathFunctions.dir/mysqrt.cxx.o -c /home/huloves/repositories/exercise/learn_cmake/tutorial/Step2/MathFunctions/mysqrt.cxx
+MathFunctions/CMakeFiles/MathFunctions.dir/mysqrt.cxx.o: /home/huqingwei/repositories/exercise/learn_cmake/tutorial/Step2/MathFunctions/mysqrt.cxx
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/huqingwei/repositories/exercise/learn_cmake/tutorial/Step2_build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object MathFunctions/CMakeFiles/MathFunctions.dir/mysqrt.cxx.o"
+	cd /home/huqingwei/repositories/exercise/learn_cmake/tutorial/Step2_build/MathFunctions && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MathFunctions.dir/mysqrt.cxx.o -c /home/huqingwei/repositories/exercise/learn_cmake/tutorial/Step2/MathFunctions/mysqrt.cxx
 
 MathFunctions/CMakeFiles/MathFunctions.dir/mysqrt.cxx.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MathFunctions.dir/mysqrt.cxx.i"
-	cd /home/huloves/repositories/exercise/learn_cmake/tutorial/Step2_build/MathFunctions && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/huloves/repositories/exercise/learn_cmake/tutorial/Step2/MathFunctions/mysqrt.cxx > CMakeFiles/MathFunctions.dir/mysqrt.cxx.i
+	cd /home/huqingwei/repositories/exercise/learn_cmake/tutorial/Step2_build/MathFunctions && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/huqingwei/repositories/exercise/learn_cmake/tutorial/Step2/MathFunctions/mysqrt.cxx > CMakeFiles/MathFunctions.dir/mysqrt.cxx.i
 
 MathFunctions/CMakeFiles/MathFunctions.dir/mysqrt.cxx.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MathFunctions.dir/mysqrt.cxx.s"
-	cd /home/huloves/repositories/exercise/learn_cmake/tutorial/Step2_build/MathFunctions && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/huloves/repositories/exercise/learn_cmake/tutorial/Step2/MathFunctions/mysqrt.cxx -o CMakeFiles/MathFunctions.dir/mysqrt.cxx.s
+	cd /home/huqingwei/repositories/exercise/learn_cmake/tutorial/Step2_build/MathFunctions && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/huqingwei/repositories/exercise/learn_cmake/tutorial/Step2/MathFunctions/mysqrt.cxx -o CMakeFiles/MathFunctions.dir/mysqrt.cxx.s
 
 MathFunctions/CMakeFiles/MathFunctions.dir/mysqrt.cxx.o.requires:
 
@@ -91,9 +91,9 @@ MathFunctions_EXTERNAL_OBJECTS =
 MathFunctions/libMathFunctions.a: MathFunctions/CMakeFiles/MathFunctions.dir/mysqrt.cxx.o
 MathFunctions/libMathFunctions.a: MathFunctions/CMakeFiles/MathFunctions.dir/build.make
 MathFunctions/libMathFunctions.a: MathFunctions/CMakeFiles/MathFunctions.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/huloves/repositories/exercise/learn_cmake/tutorial/Step2_build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libMathFunctions.a"
-	cd /home/huloves/repositories/exercise/learn_cmake/tutorial/Step2_build/MathFunctions && $(CMAKE_COMMAND) -P CMakeFiles/MathFunctions.dir/cmake_clean_target.cmake
-	cd /home/huloves/repositories/exercise/learn_cmake/tutorial/Step2_build/MathFunctions && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MathFunctions.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/huqingwei/repositories/exercise/learn_cmake/tutorial/Step2_build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libMathFunctions.a"
+	cd /home/huqingwei/repositories/exercise/learn_cmake/tutorial/Step2_build/MathFunctions && $(CMAKE_COMMAND) -P CMakeFiles/MathFunctions.dir/cmake_clean_target.cmake
+	cd /home/huqingwei/repositories/exercise/learn_cmake/tutorial/Step2_build/MathFunctions && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MathFunctions.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 MathFunctions/CMakeFiles/MathFunctions.dir/build: MathFunctions/libMathFunctions.a
@@ -105,10 +105,10 @@ MathFunctions/CMakeFiles/MathFunctions.dir/requires: MathFunctions/CMakeFiles/Ma
 .PHONY : MathFunctions/CMakeFiles/MathFunctions.dir/requires
 
 MathFunctions/CMakeFiles/MathFunctions.dir/clean:
-	cd /home/huloves/repositories/exercise/learn_cmake/tutorial/Step2_build/MathFunctions && $(CMAKE_COMMAND) -P CMakeFiles/MathFunctions.dir/cmake_clean.cmake
+	cd /home/huqingwei/repositories/exercise/learn_cmake/tutorial/Step2_build/MathFunctions && $(CMAKE_COMMAND) -P CMakeFiles/MathFunctions.dir/cmake_clean.cmake
 .PHONY : MathFunctions/CMakeFiles/MathFunctions.dir/clean
 
 MathFunctions/CMakeFiles/MathFunctions.dir/depend:
-	cd /home/huloves/repositories/exercise/learn_cmake/tutorial/Step2_build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/huloves/repositories/exercise/learn_cmake/tutorial/Step2 /home/huloves/repositories/exercise/learn_cmake/tutorial/Step2/MathFunctions /home/huloves/repositories/exercise/learn_cmake/tutorial/Step2_build /home/huloves/repositories/exercise/learn_cmake/tutorial/Step2_build/MathFunctions /home/huloves/repositories/exercise/learn_cmake/tutorial/Step2_build/MathFunctions/CMakeFiles/MathFunctions.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/huqingwei/repositories/exercise/learn_cmake/tutorial/Step2_build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/huqingwei/repositories/exercise/learn_cmake/tutorial/Step2 /home/huqingwei/repositories/exercise/learn_cmake/tutorial/Step2/MathFunctions /home/huqingwei/repositories/exercise/learn_cmake/tutorial/Step2_build /home/huqingwei/repositories/exercise/learn_cmake/tutorial/Step2_build/MathFunctions /home/huqingwei/repositories/exercise/learn_cmake/tutorial/Step2_build/MathFunctions/CMakeFiles/MathFunctions.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : MathFunctions/CMakeFiles/MathFunctions.dir/depend
 

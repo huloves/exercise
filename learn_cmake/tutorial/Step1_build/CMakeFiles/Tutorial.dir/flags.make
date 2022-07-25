@@ -6,5 +6,5 @@ CXX_FLAGS =   -std=gnu++11
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/huloves/repositories/exercise/learn_cmake/tutorial/Step1_build 
+CXX_INCLUDES = -I/home/huqingwei/repositories/exercise/learn_cmake/tutorial/Step1_build 
 
