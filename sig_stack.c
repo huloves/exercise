@@ -14,7 +14,7 @@
  */
 #define CONTEXT_OFFSET	72
 // rip寄存器相对于局部变量a的偏移。注意rip在sigcontext中的偏移是16
-#define PC_OFFSET		200
+#define PC_OFFSET		20
 
 int wait_start()
 {

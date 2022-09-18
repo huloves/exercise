@@ -32,12 +32,12 @@ int main(int argc, char** argv)
 {
     ucontext_t context;
 
-    // getcontext(&context);
-    // printf("hello world!\n");
-    // sleep(1);
-    // setcontext(&context);
+    getcontext(&context);
+    printf("hello world!\n");
+    sleep(1);
+    setcontext(&context);
 
-    context_test();
+    // context_test();
 
     return 0;
 }

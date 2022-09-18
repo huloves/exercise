@@ -11,8 +11,6 @@ unsigned long* p;
 
 void sig_start(int signo)
 {
-    uint64_t* rsp;
-    uint64_t* rbp;
     unsigned long a = 0x1234567811223344;
 
     // p = (unsigned char*)&a;
@@ -28,12 +26,6 @@ void sig_start(int signo)
     }
     printf("----end stack----\n");
 
-    asm volatile ("movq %%rbp, %0" : : "m"(rbp));
-    asm volatile ("movq %%rsp, %0" : : "m"(rsp));
-    printf("rbp = %p\n", rbp);
-    printf("rsp = %p\n", rsp);
-    printf("*rbp = %llx\n", *rbp);
-    printf("*(rbp+1) = %llx\n", *(rbp+1));
     printf("&a = 0x%llx\n", &a);
     printf("signo = %llx\n", signo);
     printf("&signo = %llx\n", &signo);
